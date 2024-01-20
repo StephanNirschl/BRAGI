@@ -1,5 +1,8 @@
 {
     "directory_to_watch": "C:\\Users\\ni88\\Desktop\\workspace\\old",
-    "directory_to_move": "C:\\Users\\ni88\\Desktop\\workspace\\new"
+    "directory_to_move": "C:\\Users\\ni88\\Desktop\\workspace\\new",
+    "function_rename_Verwendungszweck_activ": true,
+    "function_drill_length": false,
+    "change_material": false
 }
   
