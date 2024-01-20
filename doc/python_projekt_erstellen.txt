@@ -1,0 +1,29 @@
+
+Visual Studio Code installieren
+https://code.visualstudio.com/
+
+Python Interpreter installieren
+https://www.python.org/downloads/
+
+öffne Python Terminal und installiere:
+pip install --upgrade virtualenv
+
+
+-------------------------------------------------------------------------------------------------------------------------
+erstelle ein neues Projekt und wechsle Anschließend in das Verzeichnis:
+mkdir BRAGI
+cd BRAGI
+-------------------------------------------------------------------------------------------------------------------------
+
+Initialisiere ein virtuelles Umgebung und aktiviere sie anschließend:
+virtualenv venv
+.\venv\Scripts\activate
+
+er will nicht also PowerShell als Admin öffnen und:
+Set-ExecutionPolicy Unrestricted
+dann "a"
+Fertig, sollte nun gehen nochmal ausführen   
+(sinnigerweise mal wieder zurückstellen)
+
+-------------------------------------------------------------------------------------------------------
+

@@ -1,0 +1,30 @@
+Um ein Python-Programm in eine portable Version zu packen, die auf einem anderen Rechner ohne Installation ausgeführt werden kann, könnten Sie PyInstaller oder cx_Freeze verwenden. Diese Tools ermöglichen es, Python-Skripte in ausführbare Dateien umzuwandeln, die alle benötigten Abhängigkeiten enthalten.
+
+Hier sind grundlegende Schritte, die Sie befolgen können:
+Verwendung von PyInstaller:
+
+    Installation von PyInstaller:
+    Installieren Sie PyInstaller über den folgenden Befehl in der Befehlszeile:
+
+pip install pyinstaller
+
+Erstellen Sie eine ausführbare Datei:
+Navigieren Sie zur Hauptdatei Ihres Python-Programms in der Befehlszeile und verwenden Sie den folgenden Befehl, um eine ausführbare Datei zu erstellen:
+
+css
+
+    pyinstaller --onefile dein_programm.py
+
+    Dies erstellt eine ausführbare Datei im dist-Verzeichnis.
+
+    Verschieben Sie die Dateien:
+    Kopieren Sie die erstellte ausführbare Datei und alle erforderlichen Ressourcen (z.B., JSON-Konfigurationsdatei) auf den Zielrechner.
+
+    Ausführung auf dem Zielrechner:
+    Führen Sie die ausführbare Datei auf dem Zielrechner aus.
+
+Beachten Sie:
+
+    Stellen Sie sicher, dass Ihre JSON-Konfigurationsdatei im gleichen Verzeichnis wie die ausführbare Datei liegt.
+    Wenn Ihr Programm Dateien liest oder schreibt, stellen Sie sicher, dass die Pfade relativ zum Verzeichnis der ausführbaren Datei sind.
+    Abhängig von Ihrem Programm und den genauen Anforderungen müssen möglicherweise Anpassungen vorgenommen werden.
