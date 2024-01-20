@@ -4,20 +4,39 @@ import os
 import json
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
-from classes.xml_handler import XmlHandler  # Importiere die XmlHandler-Klasse aus der separaten Datei
+from classes.xml_handlerStatus import XmlHandlerStatus  # Importiere die XmlHandler-Klasse aus der separaten Datei
 
 class MyHandler(FileSystemEventHandler):
+
     def __init__(self):
+        super().__init__()
+        # Laden der Konfiguration aus der JSON-Datei
+        with open("config.json", "r") as config_file:
+            config = json.load(config_file)
+
+        self.function_rename_Status_activ = config.get("function_rename_Status_activ", False)
+        self.function_drill_length = config.get("function_drill_length", False)
+        self.function_change_material = config.get("function_change_material", False)
         self.neue_datei = None
 
     def on_created(self, event):
         if event.is_directory:
             return
-        elif event.event_type == 'created':
-            if event.src_path.lower().endswith('.xml'):
-                print(f"found new xml: {event.src_path}")
-                self.neue_datei = event.src_path
-                XmlHandler.change_special_parameter(self.neue_datei)
+
+        if event.event_type == 'created' and event.src_path.lower().endswith('.xml'):
+            print(f"found new xml: {event.src_path}")
+            self.neue_datei = event.src_path
+
+            if self.function_rename_Status_activ:
+                XmlHandlerStatus.change_special_parameter(self.neue_datei)
+
+            if self.function_drill_length:
+                XmlHandlerStatus.change_special_parameter(self.neue_datei)
+
+            if  self.function_change_material:
+                XmlHandlerStatus.change_special_parameter(self.neue_datei)
+
+
 
 if __name__ == "__main__":
     # Laden Sie die Konfiguration aus der JSON-Datei
